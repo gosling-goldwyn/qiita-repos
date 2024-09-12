@@ -1,0 +1,39 @@
+---
+title: axiosでCSRF対策
+tags:
+  - 'JavaScript'
+  - 'axios'
+private: false
+updated_at: ''
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+# axiosでCSRF対策
+
+色々やったがまた403出るようになったので備忘録
+
+ヘッダにX-CSRFTOKENとCookieにcsrftokenを追加してあげると回避できた
+axiosじゃない場合はわからん
+
+```js:example
+    deleteLog: function(id){
+      const config = {
+        responseType: "application/json",
+      };
+      const url = "hoge";
+      axios.defaults.xsrfCookieName = 'csrftoken' //CSRF対策
+      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN" // CSRF対策
+      const res = axios
+        .post(url,
+        {},
+        config)
+        .then((res) => {
+          // 処理
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    },
+```

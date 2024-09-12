@@ -1,0 +1,48 @@
+---
+title: 仮想マシンにWindows11を追加する方法
+tags:
+  - 'vSphere'
+  - 'windows11'
+  - 'VMWare'
+private: false
+updated_at: ''
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+# 推奨手順
+
+マシン作成時にTPMを追加する
+ハードディスクは多めに設定しておいたほうがよさげ（Win11の推奨動作要件参照）
+
+vSphere環境の場合、キープロバイダを作成しておくとTPMが選べるようになる。
+
+
+## 初回セットアップ時
+
+マイクロソフトアカウントを求められる。
+
+1. ネットワークを切断する
+1. `Shift`+`F10`でコマンドプロンプト起動
+    ```
+    oobe\BypassNRO.cmd
+    ```
+1. 再起動するのでそのままインストールを続行する
+
+
+# 非推奨手順
+
+以下はTPM設定しない場合の手順。
+
+## インストール時
+
+インストールメディアを起動して、`Shift`+`F10`でコマンドプロンプト起動
+```
+regedit
+```
+でレジストリエディタ起動
+
+レジストリHKEY_LOCAL_MACHINE\SYSTEM\Setupに「LabConfig」キーを作成、「BypassTPMCheck」をDWORDで作成、値=1として登録する
+
+これでTPMなしでインストールできる
