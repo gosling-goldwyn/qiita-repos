@@ -1,11 +1,11 @@
 ---
 title: Elasticsearchがデータを取り込んでくれなくなったとき
 tags:
-  - 'Elasticsearch'
-  - 'fluentd'
+  - Fluentd
+  - Elasticsearch
 private: false
-updated_at: ''
-id: null
+updated_at: '2024-09-12T23:34:12+09:00'
+id: 0d1070e494890b4f98a7
 organization_url_name: null
 slide: false
 ignorePublish: false
