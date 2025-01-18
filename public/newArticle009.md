@@ -4,8 +4,8 @@ tags:
   - Ubuntu
   - RS232C
 private: false
-updated_at: ''
-id: null
+updated_at: '2025-01-18T18:49:50+09:00'
+id: ffa0ceee68a0248be135
 organization_url_name: null
 slide: false
 ignorePublish: false
